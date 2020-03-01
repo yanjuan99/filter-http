@@ -56,7 +56,8 @@ DWORD inject(const wchar_t* name, Fn fn)
 				HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pe32.th32ProcessID);
 				if (INVALID_HANDLE_VALUE == hProc)
 				{
-					return false;
+					CloseHandle(hProcSnap);
+					return 0;
 				}
 				if (GetProcessCommandLine(hProc))
 				{
