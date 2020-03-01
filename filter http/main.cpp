@@ -25,41 +25,6 @@ void  __declspec(dllexport) add()
 	return;
 }
 
-//using namespace asmjit;
-//
-//template <typename... Args>
-//BOOLEAN Assemble(std::vector<unsigned char> buffer, LPCSTR fmt, Args... args) {
-//	auto size = static_cast<SIZE_T>(snprintf(nullptr, 0, fmt, args...));
-//	if (!size) {
-//		return FALSE;
-//	}
-//	++size;
-//	std::shared_ptr<CHAR>  formatted(new CHAR[size]);
-//	sprintf_s(formatted.get(), size, fmt, args...);
-//
-//	asmjit::CodeInfo codeInfo(asmjit::ArchInfo::kIdX64);
-//	asmjit::CodeHolder code;
-//	code.init(codeInfo);
-//
-//	asmjit::x86::Assembler assembler(&code);
-//	asmtk::AsmParser parser(&assembler);
-//
-//	auto error = parser.parse(formatted.get());
-//	if (error) {
-//		buffer = 0;
-//		bufferSize = 0;
-//		return FALSE;
-//	}
-//
-//	auto& output = code.sectionById(0)->buffer();
-//
-//	for (size_t i = 0; i < output.size(); i++)
-//	{
-//		buffer.push_back(output.data()[i]);
-//	}
-//	return TRUE;
-//}
-
 template <typename... Args>
 bool Write_log(LPCSTR fmt, Args... args)
 {
